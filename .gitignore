@@ -1,0 +1,20 @@
+# Virtual Environments
+venv/
+
+# Large datasets (If "tips.csv" is huge)
+tips.csv
+
+# Personal or temporary files
+notes.txt
+
+# Jupyter Notebook generated files or potential checkpoints
+*.ipynb_checkpoints/
+
+# Other common files to exclude
+*.pyc
+*.pyo
+*.egg-info/
+__pycache__/
+*.log
+*.bak
+.DS_Store
