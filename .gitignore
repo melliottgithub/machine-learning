@@ -3,6 +3,7 @@ venv/
 
 # Large datasets (If "tips.csv" is huge)
 tips.csv
+mpg.csv
 
 # Personal or temporary files
 notes.txt
