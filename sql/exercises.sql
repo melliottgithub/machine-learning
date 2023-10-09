@@ -140,6 +140,10 @@ ORDER BY ea.attendance DESC;
 --  including names and start times, associated with the specified date.
 
 
+select e.dateid, e.eventname, e.starttime, d.caldate
+from event e
+join date d on e.dateid = d.dateid
+where d.caldate = '2008-08-21'
 
 
 
