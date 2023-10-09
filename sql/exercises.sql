@@ -146,15 +146,38 @@ join date d on e.dateid = d.dateid
 where d.caldate = '2008-08-21'
 
 
+-- 4. Identify the seller who has listed the highest number of tickets utilizing the listing table. 
+
+select sellerid, count(numtickets) as total 
+from listing
+group by sellerid
+order by total desc
+limit 1
 
 
+with SellerTotal as (
+	select sellerid, count(numtickets) as total 
+	from listing
+	group by sellerid
+	order by total desc
+),
+HighesTotal as (
+	select total
+	from (
+		select total, row_number() over (order by total desc) as rank
+		from SellerTotal
+	) subquery
+	where rank = 2 -- 1 used to to test
+)
+
+select sellerid, st.total 
+from HighesTotal ht, SellerTotal st
+where st.total >= ht.total
+order by st.total desc
 
 
-
-
-
-
-
+-- Create a SQL query to list categories alongside the total number of events in each category. 
+-- Utilize the category and event tables to extract and aggregate relevant information.
 
 
 
