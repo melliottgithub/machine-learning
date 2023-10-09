@@ -176,12 +176,14 @@ where st.total >= ht.total
 order by st.total desc
 
 
--- Create a SQL query to list categories alongside the total number of events in each category. 
+-- 5. Create a SQL query to list categories alongside the total number of events in each category. 
 -- Utilize the category and event tables to extract and aggregate relevant information.
 
 
-
-
+select c.catname as category , count(e.eventname) as event_count
+from category c
+join event e on e.catid = c.catid
+group by category
 
 
 
