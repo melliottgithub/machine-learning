@@ -1,0 +1,4 @@
+-- select count(*) from film
+-- select count(amount) from payment
+-- select distinct(amount) from payment
+-- select count(DISTINCT(amount)) from payment
