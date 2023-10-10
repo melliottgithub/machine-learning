@@ -10,7 +10,7 @@ CREATE TABLE movie (
 CREATE TABLE rating (
 	movie_id CHAR(4) NOT NULL,
 	movie_title VARCHAR(80) NOT NULL,
-	imdb_score NUMERIC(2, 1) 
+	imdb_score NUMERIC(2, 1) -- not nullD
 );
 
 -- select * from rating
