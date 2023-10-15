@@ -1,14 +1,16 @@
-# Use an official Python runtime as a parent image
-FROM python:3.11.4-slim-buster
+# Use the official AWS Lambda base image for Python 3.11
+FROM public.ecr.aws/lambda/python:3.11
 
+# Set the working directory
 WORKDIR /app
 
-COPY . /app
+# Install dependencies (if any)
+COPY ./app/requirements.txt . 
+RUN pip install -r requirements.txt
 
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
+# Copy the Lambda function code and model file into the image
+COPY ./app/lambda_function.py .
+COPY ./app/rf_pipeline.pkl .
 
-EXPOSE 8000
-
-ENV UVICORN_WORKERS=1
-
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+# Define the Lambda handler
+CMD ["lambda_function.lambda_handler"]

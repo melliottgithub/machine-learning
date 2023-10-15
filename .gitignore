@@ -1,5 +1,8 @@
 # Virtual Environments
 venv/
+package/
+function_package.zip
+lambda_env/
 
 # Large datasets (If "tips.csv" is huge)
 tips.csv
