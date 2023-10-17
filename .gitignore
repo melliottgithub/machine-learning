@@ -5,9 +5,9 @@ function_package.zip
 lambda_env/
 
 # Large datasets (If "tips.csv" is huge)
-tips.csv
-mpg.csv
-spam.tsv
+*.csv
+*.tsv
+*.pkl
 
 # Personal or temporary files
 notes.txt
