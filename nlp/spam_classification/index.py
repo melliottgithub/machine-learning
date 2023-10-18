@@ -1,4 +1,4 @@
-# lambda_function.py
+# app.py
 from flask import Flask, request, jsonify
 import joblib
 
@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 model = joblib.load("rf_pipeline.pkl")
 
-def lambda_handler(event, context):
+@app.route("/predict", methods=["POST"])
+def predict():
     try:
         data = request.get_json()
         text = data.get("text", "")
@@ -20,4 +21,4 @@ def lambda_handler(event, context):
         return jsonify({"error": "Model prediction failed"}), 500
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000)
