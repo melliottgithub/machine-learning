@@ -7,7 +7,7 @@ lambda_env/
 # Large datasets (If "tips.csv" is huge)
 *.csv
 *.tsv
-*.pkl
+# *.pkl
 
 # Personal or temporary files
 notes.txt
